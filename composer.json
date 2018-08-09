@@ -1,0 +1,42 @@
+{
+  "name": "alessandrominoccheri/currency-converter",
+  "type": "prohect",
+  "description": "A library to convert your price from a currency to another",
+  "keywords": [
+    "php",
+    "component",
+    "currency",
+    "plugin",
+    "converter",
+    "money",
+    "finance",
+    "euro",
+    "dollar",
+    "exchange"
+  ],
+  "homepage": "https://github.com/AlessandroMinoccheri/currency-converter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alessandro Minoccheri",
+      "email": "alessandro.minoccheri@gmail.com",
+      "homepage": "https://alessandrominoccheri.github.io/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  }}

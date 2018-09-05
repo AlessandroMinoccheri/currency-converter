@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: alessandrominoccheri
@@ -10,20 +11,26 @@ namespace CurrencyConverter;
 
 class Rates
 {
-    public static function getRates(string $fromCurrency, $toCurrency)
+    private $apiCaller;
+
+    public function __construct(
+        ApiCaller $apiCaller
+    ) {
+        $this->apiCaller = $apiCaller;
+    }
+
+    public function getRates(string $fromCurrency, $toCurrency)
     {
-        $url = 'https://free.currencyconverterapi.com/api/v5/convert?q=' .
-            $fromCurrency . '_' . $toCurrency . '&compact=ultra' ;
-        $handle = @fopen($url, 'r');
+        $this->apiCaller->convert(
+            $fromCurrency,
+            $toCurrency
+        );
 
-        if ($handle) {
-            $result = fgets($handle, 4096);
-            fclose($handle);
-        }
-
-        if (!isset($result)) {
+        if ($this->apiCaller->isLastCallEmpty()) {
             return 0;
         }
+
+        $result = $this->apiCaller->getLastResponse();
 
         $conversion = json_decode($result, true);
         $key = $fromCurrency . '_' . $toCurrency;

@@ -1,16 +1,24 @@
-
 <?php
-/**
- * Created by PhpStorm.
- * User: alessandrominoccheri
- * Date: 05/09/18
- * Time: 08:51
- */
+
+namespace Tests;
+
+use CurrencyConverter\CurrencyConverter;
 
 class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
 {
-    public function testFoo()
+    public function testConvertWithNotExistingCurrency()
     {
-        $this->assertTrue(true);
+        $currencyConverter = new CurrencyConverter();
+        $result = $currencyConverter->convert('notExist', 'bar', random_int(1, 999999));
+
+        $this->assertEquals(0, $result);
+    }
+
+    public function testConvert()
+    {
+        $currencyConverter = new CurrencyConverter();
+        $result = $currencyConverter->convert('EUR', 'USD', random_int(1, 999999));
+
+        $this->assertNotEquals(0, $result);
     }
 }

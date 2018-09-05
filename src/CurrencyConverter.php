@@ -1,14 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alessandrominoccheri
- * Date: 10/08/18
- * Time: 17:36
- */
+
 
 class CurrencyConverter
 {
     private $fromCurrency;
+
     private $toCurrency;
 
     public function convert(string $fromCurrency, string $toCurrency, $amount) :float

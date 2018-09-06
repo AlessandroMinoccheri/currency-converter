@@ -9,7 +9,7 @@ Work in progress
 This project uses Makefile to run tasks.
 
  - make agile
-   it prints
+   it create an overview of test case methods presented as full sentences
 
  - make test
    runs classic phpunit tests

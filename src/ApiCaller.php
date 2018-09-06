@@ -19,7 +19,7 @@ class ApiCaller
         }
     }
 
-    public function isLastCallEmpty()
+    public function isLastCallEmpty() : bool
     {
         return $this->response == null;
     }

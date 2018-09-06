@@ -24,7 +24,7 @@ class ApiCaller
         return $this->response == null;
     }
 
-    public function getLastResponse()
+    public function getLastResponse() : string
     {
         return $this->response;
     }

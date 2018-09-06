@@ -17,7 +17,11 @@ class CurrencyConverter
         $this->fromCurrency = $fromCurrency;
         $this->toCurrency = $toCurrency;
 
-        $rate = Rates::getRates($fromCurrency, $toCurrency);
+        $rates = new Rates(
+            new ApiCaller()
+        );
+
+        $rate = $rates->getRates($fromCurrency, $toCurrency);
 
         return $this->calculateValue($rate, $amount);
     }

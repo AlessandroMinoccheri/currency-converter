@@ -14,7 +14,7 @@ class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(0, $result);
     }
 
-    public function testConvert()
+    public function testConvertWithinValidCurrencyProvided()
     {
         $currencyConverter = new CurrencyConverter();
         $result = $currencyConverter->convert('EUR', 'USD', random_int(1, 999999));

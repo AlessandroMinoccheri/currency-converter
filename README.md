@@ -1,5 +1,4 @@
 # currency-converter
-==========================
 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AlessandroMinoccheri/currency-converter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AlessandroMinoccheri/currency-converter/?branch=master)

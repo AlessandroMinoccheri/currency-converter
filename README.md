@@ -2,6 +2,11 @@
 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AlessandroMinoccheri/currency-converter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AlessandroMinoccheri/currency-converter/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/AlessandroMinoccheri/currency-converter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/AlessandroMinoccheri/currency-converter/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/alessandrominoccheri/currency-converter/v/stable.svg)](https://packagist.org/packages/alessandrominoccheri/currency-converter)
+[![License](https://poser.pugx.org/alessandrominoccheri/currency-converter/license.svg)](https://packagist.org/packages/alessandrominoccheri/currency-converter)
+[![Build Status](https://api.travis-ci.org/AlessandroMinoccheri/currency-converter.png)](https://travis-ci.org/AlessandroMinoccheri/currency-converter)
+[![Total Downloads](https://poser.pugx.org/alessandrominoccheri/currency-converter/d/total.png)](https://packagist.org/packages/alessandrominoccheri/currency-converter)
 
 Php library to convert a currency into another
 

@@ -9,7 +9,7 @@ Work in progress
 
 ## How to install
 
-To install this library you can use composer and launch form your CLI:
+To install this library you can use composer and launch it from your CLI:
 
 ```
 composer require alessandrominoccheri/currency-converter

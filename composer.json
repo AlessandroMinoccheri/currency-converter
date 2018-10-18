@@ -1,6 +1,6 @@
 {
   "name": "alessandrominoccheri/currency-converter",
-  "type": "prohect",
+  "type": "project",
   "description": "A library to convert your price from a currency to another",
   "keywords": [
     "php",

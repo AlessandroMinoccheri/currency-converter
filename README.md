@@ -26,7 +26,7 @@ If you want to use this library you need to create a new instance of ```Currency
 
 You need also to pass an apikey generated from here:
 
-![CurrencyConverterApi](https://free.currencyconverterapi.com/)
+[CurrencyConverterApi](https://free.currencyconverterapi.com/)
 
 ```
 $currencyConverter = new CurrencyConverter($yourApiKey);

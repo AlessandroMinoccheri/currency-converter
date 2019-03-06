@@ -8,8 +8,11 @@ class CurrencyConverter
 
     private $toCurrency;
 
-    public function __construct()
+    private $apiKey;
+
+    public function __construct(string $apiKey)
     {
+        $this->apiKey = $apiKey;
     }
 
     public function convert(string $fromCurrency, string $toCurrency, $amount) :float
@@ -18,7 +21,7 @@ class CurrencyConverter
         $this->toCurrency = $toCurrency;
 
         $rates = new Rates(
-            new ApiCaller()
+            new ApiCaller($this->apiKey)
         );
 
         $rate = $rates->getRates($fromCurrency, $toCurrency);

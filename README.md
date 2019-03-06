@@ -24,8 +24,12 @@ composer require alessandrominoccheri/currency-converter
 
 If you want to use this library you need to create a new instance of ```CurrencyConverter``` and after call the method ```convert```like this
 
+You need also to pass an apikey generated from here:
+
+![CurrencyConverterApi](https://free.currencyconverterapi.com/)
+
 ```
-$currencyConverter = new CurrencyConverter();
+$currencyConverter = new CurrencyConverter($yourApiKey);
 $result = $currencyConverter->convert('EUR', 'USD', random_int(1, 999999));
 ```
 

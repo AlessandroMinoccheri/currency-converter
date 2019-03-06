@@ -6,19 +6,21 @@ use CurrencyConverter\CurrencyConverter;
 
 class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @expectedException  \Exception
+     */
     public function testConvertWithNotExistingCurrency()
     {
-        $currencyConverter = new CurrencyConverter();
+        $currencyConverter = new CurrencyConverter('apiKey');
         $result = $currencyConverter->convert('notExist', 'bar', random_int(1, 999999));
-
-        $this->assertEquals(0, $result);
     }
 
+    /**
+     * @expectedException  \Exception
+     */
     public function testConvertWithinValidCurrencyProvided()
     {
-        $currencyConverter = new CurrencyConverter();
-        $result = $currencyConverter->convert('EUR', 'USD', random_int(1, 999999));
-
-        $this->assertNotEquals(0, $result);
+        $currencyConverter = new CurrencyConverter('apiKey');
+        $currencyConverter->convert('EUR', 'USD', random_int(1, 999999));
     }
 }

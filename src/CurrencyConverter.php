@@ -10,9 +10,12 @@ class CurrencyConverter
 
     private $apiKey;
 
+    private $apiCaller;
+
     public function __construct(string $apiKey)
     {
         $this->apiKey = $apiKey;
+        $this->apiCaller = new ApiCaller($apiKey);
     }
 
     public function convert(string $fromCurrency, string $toCurrency, $amount) :float
@@ -20,9 +23,7 @@ class CurrencyConverter
         $this->fromCurrency = $fromCurrency;
         $this->toCurrency = $toCurrency;
 
-        $rates = new Rates(
-            new ApiCaller($this->apiKey)
-        );
+        $rates = new Rates($this->apiCaller);
 
         $rate = $rates->getRates($fromCurrency, $toCurrency);
 
@@ -34,5 +35,10 @@ class CurrencyConverter
         $value = (double)$rate * (double)$amount;
 
         return number_format((double)$value, 2, '.', '');
+    }
+
+    public function setApiCaller(ApiCaller $apiCaller)
+    {
+        $this->apiCaller = $apiCaller;
     }
 }

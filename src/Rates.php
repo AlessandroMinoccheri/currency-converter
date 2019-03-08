@@ -13,13 +13,12 @@ class Rates
 {
     private $apiCaller;
 
-    public function __construct(
-        ApiCaller $apiCaller
-    ) {
+    public function __construct(ApiCaller $apiCaller)
+    {
         $this->apiCaller = $apiCaller;
     }
 
-    public function getRates(string $fromCurrency, $toCurrency)
+    public function getRates(string $fromCurrency, string $toCurrency)
     {
         $this->apiCaller->convert(
             $fromCurrency,

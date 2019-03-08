@@ -13,9 +13,7 @@ class RatesTest extends \PHPUnit\Framework\TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->rates = new Rates(
-            $this->apiCaller
-        );
+        $this->rates = new Rates($this->apiCaller);
 
         $this->apiCaller->expects($this->once())
             ->method('convert')

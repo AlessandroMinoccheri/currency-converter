@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use CurrencyConverter\ApiCaller;
 use CurrencyConverter\CurrencyConverter;
+use CurrencyConverter\Rates;
 
 class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
 {
@@ -22,13 +22,11 @@ class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
         $toCurrency = 'USD';
         $expected = 100;
 
-        $apiCaller = $this->prophesize(ApiCaller::class);
-        $apiCaller->convert($fromCurrency, $toCurrency)->willReturn($expected);
-        $apiCaller->isLastCallEmpty()->willReturn(false);
-        $apiCaller->getLastResponse()->willReturn(json_encode([$fromCurrency . '_' . $toCurrency => $expected]));
+        $rates = $this->prophesize(Rates::class);
+        $rates->getRates($fromCurrency, $toCurrency)->willReturn($expected);
 
         $currencyConverter = new CurrencyConverter('apiKey');
-        $currencyConverter->setApiCaller($apiCaller->reveal());
+        $currencyConverter->setRates($rates->reveal());
         $result = $currencyConverter->convert($fromCurrency, $toCurrency, random_int(1, 999999));
 
         $this->assertNotEquals($expected, $result);
@@ -38,15 +36,13 @@ class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
     {
         $fromCurrency = 'EUR';
         $toCurrency = 'USD';
-        $value = 100;
+        $value = 0;
 
-        $apiCaller = $this->prophesize(ApiCaller::class);
-        $apiCaller->convert($fromCurrency, $toCurrency)->willReturn($value);
-        $apiCaller->isLastCallEmpty()->willReturn(false);
-        $apiCaller->getLastResponse()->willReturn(json_encode(['notEsistKey' => $value]));
+        $rates = $this->prophesize(Rates::class);
+        $rates->getRates($fromCurrency, $toCurrency)->willReturn($value);
 
         $currencyConverter = new CurrencyConverter('apiKey');
-        $currencyConverter->setApiCaller($apiCaller->reveal());
+        $currencyConverter->setRates($rates->reveal());
         $result = $currencyConverter->convert($fromCurrency, $toCurrency, random_int(1, 999999));
 
         $this->assertEquals(0, $result);

@@ -18,7 +18,7 @@ class Rates
         $this->apiCaller = $apiCaller;
     }
 
-    public function getRates(string $fromCurrency, string $toCurrency)
+    public function getRates(string $fromCurrency, string $toCurrency) :float
     {
         $this->apiCaller->convert(
             $fromCurrency,

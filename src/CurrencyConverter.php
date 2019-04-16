@@ -52,4 +52,9 @@ class CurrencyConverter
     {
         $this->rates = $rates;
     }
+
+    public function getApiCaller() :ApiCaller
+    {
+        return $this->apiCaller;
+    }
 }

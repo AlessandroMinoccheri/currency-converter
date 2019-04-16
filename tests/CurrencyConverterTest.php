@@ -47,4 +47,31 @@ class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(0, $result);
     }
+
+    public function testGetRates()
+    {
+        $fromCurrency = 'EUR';
+        $toCurrency = 'USD';
+        $value = 100;
+
+        $rates = $this->prophesize(Rates::class);
+        $rates->getRates($fromCurrency, $toCurrency)->willReturn($value);
+
+        $currencyConverter = new CurrencyConverter('apiKey');
+        $currencyConverter->setRates($rates->reveal());
+        $result = $currencyConverter->getRates($fromCurrency, $toCurrency);
+
+        $this->assertEquals($value, $result);
+    }
+
+    public function setApiCaller()
+    {
+        $apiCallerMock = $this->prophesize(ApiCaller::class);
+
+        $currencyConverter = new CurrencyConverter('apiKey');
+        $currencyConverter->setApiCaller($apiCaller->reveal());
+        
+        $apiCaller = $currencyConverter->getApiCaller();
+        $this->assertEquals($apiCallerMock, $apiCaller);
+    }
 }

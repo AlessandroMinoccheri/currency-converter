@@ -64,7 +64,7 @@ class CurrencyConverterTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($value, $result);
     }
 
-    public function setApiCaller()
+    public function setTestApiCaller()
     {
         $apiCallerMock = $this->prophesize(ApiCaller::class);
 
